@@ -36,7 +36,7 @@ Commit type 	                        Emoji
 :violin:            Composer.json in PHP
 🎻 Composer: Required ...
 
-:puzzle-piece:            Logic Layer Service
+:puzzle-piece:      Logic Layer Service
 🧩 Service: 
 
 :bulb:              Documenting source code
@@ -48,10 +48,10 @@ Commit type 	                        Emoji
 :feat:              New feature
 ⭐ Feat: Added ...
 
-:sparkles:           New features
+:sparkles:          New features
 ✨ Feat: Added ...
 
-:lady-beetle:               Self Bugfix
+:lady-beetle:       Self Bugfix
 🐞 Bug: ...
 
 :bug:               Other Bugfix
@@ -79,9 +79,18 @@ Commit type 	                        Emoji
 :lipstick:          Cosmetic
 💄 Style: Designed ...
 
+:pencil:            Text 	                                
+📝 Text: ...ed in ... file
+
 :alien:             Translation
 👽 in18n: 
 
+:rotating_light:    Tests
+🚨 Test: New
+:white_check_mark:  Adding a test
+✅ Test: Added
+:heavy_check_mark:  Make a test pass
+✔️ Test: Passed
 :hammer:            Debug
 🔨 Debug: ...
 
@@ -91,15 +100,12 @@ Commit type 	                        Emoji
 Merging branches 	                    🔀 :twisted_rightwards_arrows:
 
 Performance 	                        🐎 :racehorse:
-Tests 	                                🚨 :rotating_light:
-Adding a test 	                        ✅ :white_check_mark:
-Make a test pass 	                    ✔️  :heavy_check_mark:
+
 
 Removing code/files 	                🔥 :fire:
 Continuous Integration 	                💚 :green_heart:
 Security 	                            🔒 :lock:
 Lint 	                                👕 :shirt:
-Text 	                                📝 :pencil:
 Critical hotfix 	                    🚑 :ambulance:
 
 Fixing on MacOS 	                    🍎 :apple:
