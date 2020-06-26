@@ -1,13 +1,4 @@
-Slitly Update of [parmentf/GitCommitEmoji.md](https://gist.github.com/parmentf/035de27d6ed1dce0b36a)
-that was
-Inspired by [dannyfritz/commit-message-emoji](https://github.com/dannyfritz/commit-message-emoji)
-
-
-See also [gitmoji](https://gitmoji.carloscuesta.me/).
-
-See also gitmoji.
 Commit type 	                        Emoji
-
         
 :tada:              Initial commit 
 🎉 Init: 
@@ -16,7 +7,7 @@ Commit type 	                        Emoji
 📖 Docs: ...ed ReadMe File
 
 :books:             Project Documentation
-📚 Docs: ...ed in XXX dir
+📚 Docs: ...ed in XXX directory files
 
 :checkered_flag:    Bash scripts 	                    
 🏁 Bash: 
@@ -86,9 +77,9 @@ Commit type 	                        Emoji
 👽 in18n: 
 
 :rotating_light:    Tests
-🚨 Test: New
+🚨 Test: added new ... TestCase 
 :white_check_mark:  Adding a test
-✅ Test: Added
+✅ Test: Added new test
 :heavy_check_mark:  Make a test pass
 ✔️ Test: Passed
 :hammer:            Debug
@@ -123,3 +114,13 @@ Code review changes 	                👌 :ok_hand:
 Accessibility 	                        ♿  :wheelchair:
 Move/rename repository 	                🚚 :truck:
 
+=======================================================
+
+Slitly Update of [parmentf/GitCommitEmoji.md](https://gist.github.com/parmentf/035de27d6ed1dce0b36a)
+that was
+Inspired by [dannyfritz/commit-message-emoji](https://github.com/dannyfritz/commit-message-emoji)
+
+
+See also [gitmoji](https://gitmoji.carloscuesta.me/).
+
+See also gitmoji.

@@ -1,5 +1,7 @@
 ### < Custom > ###
+!.gitignore
 /.vscode/*
+test.php
 ### </ Custom /> ###
 
 ###> symfony/framework-bundle ###
