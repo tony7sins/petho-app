@@ -1,31 +1,33 @@
 <?php
 
-namespace Tests;
+namespace Tests\Converters;
 
+use App\Service\Converters\DogSexConverter;
+use App\Service\Converters\PetSexConverterInterface;
 use PHPUnit\Framework\TestCase;
 
 class DogSexConverterTest extends TestCase
 {
     /** @var bool */
     private $dogIsMale;
+    /** @var PetSexConverterInterface */
+    private $converter;
 
     public function setUp()
     {
+        $this->converter = new DogSexConverter();
         $this->dogIsMale = true;
     }
 
     public function test_new_dog_sex_is_male()
     {
         $dogIsMale = $this->dogIsMale;
-
-        $converter = new DogSexConverter();
-
-        $dogSex = $converter->convertToString($dogIsMale);
+        $dogSex = $this->converter->convertToString($dogIsMale);
 
         $this->assertInternalType('string', $dogSex);
         $this->assertSame('male', $dogSex);
 
-        $dogIsMale = $converter->convertToBool('male');
+        $dogIsMale = $this->converter->convertToBool('male');
 
         $this->assertIsString($dogSex);
         $this->assertTrue($dogIsMale);
@@ -34,17 +36,20 @@ class DogSexConverterTest extends TestCase
     public function test_new_dog_sex_is_female()
     {
         $dogIsMale = !$this->dogIsMale;
-
-        $converter = new DogSexConverter();
-
-        $dogSex = $converter->convertToString($dogIsMale);
+        $dogSex = $this->converter->convertToString($dogIsMale);
 
         $this->assertIsString($dogSex);
         $this->assertSame('female', $dogSex);
 
-        $dogIsMale = $converter->convertToBool('female');
+        $dogIsMale = $this->converter->convertToBool('female');
 
         $this->assertIsBool($dogIsMale);
         $this->assertFalse($dogIsMale);
+    }
+
+    public function test_new_dog_wrong_string()
+    {
+        $this->expectException(\Exception::class);
+        $dogIsMale = $this->converter->convertToBool('somemale');
     }
 }
