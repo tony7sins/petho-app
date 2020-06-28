@@ -2,26 +2,31 @@
 
 namespace Tests\Entity;
 
-use App\UseCase\Dog\Factory\DogFactory;
+use App\Entity\Dog;
+use App\Service\BirthDateCalculator;
+use App\Service\PetSizeCalculator;
+use App\Structures\PetSize;
+use App\UseCase\CreateDog\Command\AddNewDog;
+use App\UseCase\CreateDog\Factory\DogCreator;
 use PHPUnit\Framework\TestCase;
 
 class DogFactoryTest extends TestCase
 {
+
     public function test_add_new_dog()
     {
 
-        $animalFamily = 'dog';
-        $isActive = true;
-        $isFemale = true;
-        $isStelized = true;
-        $isCaptived = false;
         $name = 'Dazy';
         $height = 560;
         $weight = 20000;
         $age = 13;
 
-        $newPet = new CreateDog(
-            $animalFamily,
+        $isActive = true;
+        $isFemale = true;
+        $isStelized = true;
+        $isCaptived = false;
+
+        $newPet = new AddNewDog(
             $isActive,
             $isFemale,
             $isStelized,
@@ -32,15 +37,20 @@ class DogFactoryTest extends TestCase
             $name
         );
 
-        $dog = new DogFactory($newPet);
+        $sizes = new PetSize();
+        $bDcalc = new BirthDateCalculator();
+        $sizeCalc = new PetSizeCalculator();
+
+        $creator = new DogCreator($sizes, $bDcalc, $sizeCalc);
+
+        $dog = $creator->create($newPet);
 
         $this->assertInstanceOf(Dog::class, $dog);
-        $this->assertInstanceOf(Animal::class, $dog);
 
-        $size = 'huge';
+        $size = 'middle';
         $birthMonth = '2019-05';
 
-        $this->assertSame($newPet, $dog->getSize());
+        $this->assertSame($size, $dog->getSize());
         $this->assertSame($birthMonth, $dog->getBirthMonth());
     }
 }
