@@ -7,6 +7,7 @@ use App\Entity\Pet;
 use App\Factory\PetCreator;
 use App\Service\Calculator\BirthDateCalculator;
 use App\Service\Calculator\PetSizeCalculator;
+use App\Service\Converter\DogSexConverter;
 use App\Structures\PetSize;
 use App\UseCase\CreateDog\Command\AddNewDog;
 
@@ -16,6 +17,8 @@ class DogCreator extends PetCreator
 
     private $birthDateCalc;
     private $petSizeCalc;
+    /** @var DogSexConverter */
+    private $sexConverter;
 
     /** @var Dog */
     private $entity;
@@ -24,12 +27,13 @@ class DogCreator extends PetCreator
     public function __construct(
         PetSize $sizes,
         BirthDateCalculator $birthDateCalculator,
-        PetSizeCalculator $petSizeCalc
+        PetSizeCalculator $petSizeCalc,
+        DogSexConverter $sexConverter
     ) {
         $this->sizes = $sizes::DOG;
         $this->birthDateCalc = $birthDateCalculator;
         $this->petSizeCalc = $petSizeCalc;
-
+        $this->sexConverter = $sexConverter;
     }
 
     public function create($dog): Pet
@@ -45,7 +49,7 @@ class DogCreator extends PetCreator
             ->setName($dog->getName())
             ->setBirthMonth($this->birthDateCalc->calculateBirthDate($dog->getAge()))
             ->setSize($this->petSizeCalc->calculateSize($this->sizes, $dog->getHeight(), $dog->getWeight()))
-            ->setSex($dog->getIsFemale())
+            ->setSex($this->sexConverter->convertToString($dog->getIsMale()))
         ;
 
         $this->entity = $entity;

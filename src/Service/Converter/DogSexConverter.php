@@ -7,19 +7,16 @@ class DogSexConverter implements PetSexConverterInterface
     const FEMALE = 'female';
     const MALE = 'male';
 
-    /** @throws Exception */
+    /** @throws DomainException */
     public function convertToBool(string $dogSex = 'male'): bool
     {
         switch ($dogSex) {
             case 'male':
                 return true;
-                break;
             case 'female':
                 return false;
-                break;
             default:
                 $this->throwException();
-                break;
         }
     }
 
@@ -30,6 +27,6 @@ class DogSexConverter implements PetSexConverterInterface
 
     private function throwException()
     {
-        throw new \Exception();
+        throw new \DomainException("You must input 'male' or 'female'. Not else");
     }
 }

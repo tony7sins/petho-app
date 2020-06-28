@@ -11,14 +11,14 @@ class AddNewDog
     private $age = 13;
 
     private $isActive = true;
-    private $isFemale = true;
+    private $isMale = true;
     private $isStelized = true;
     private $isCaptived = false;
 
     public function __construct(
         // string $animalFamily,
         bool $isActive,
-        bool $isFemale,
+        bool $isMale,
         bool $isStelized,
         bool $isCaptived,
         int $height,
@@ -28,7 +28,7 @@ class AddNewDog
 
         // $this->animalFamily = $animalFamily;
         $this->isActive = $isActive;
-        $this->isFemale = $isFemale;
+        $this->isMale = $isMale;
         $this->isStelized = $isStelized;
         $this->isCaptived = $isCaptived;
         $this->height = $height;
@@ -48,9 +48,9 @@ class AddNewDog
         return $this->isActive;
     }
 
-    public function getIsFemale(): bool
+    public function getIsMale(): bool
     {
-        return $this->isFemale;
+        return $this->isMale;
     }
 
     public function getIsStelized(): bool

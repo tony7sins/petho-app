@@ -16,7 +16,7 @@ class Dog extends Pet
     /** @var string */
     private $size;
 
-    /** @var bool */
+    /** @var string */
     private $sex;
 
     /** @var string */
@@ -46,12 +46,12 @@ class Dog extends Pet
         return $this;
     }
 
-    public function getSex(): bool
+    public function getSex(): string
     {
         return $this->sex;
     }
 
-    public function setSex(bool $sex): self
+    public function setSex(string $sex): self
     {
         $this->sex = $sex;
 
