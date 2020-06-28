@@ -52,7 +52,7 @@ Commit type 	                        Emoji
 ♻️ Refact: ...
 
 :hammer-and-wrench: Refactor code with fix
-🛠 Refact: Fixed and changed ...
+🛠 Refact: Fixed/Changed ... 
 
 :heavy_plus_sign:   Adding a dependency 
 ❕ Dep: Added 
@@ -67,6 +67,9 @@ Commit type 	                        Emoji
 ❗️ Dep: Removed
 ➖ Dep: Removed
 
+:briefcase:         Usecase 
+💼 UseCase:
+
 :lipstick:          Cosmetic
 💄 Style: Designed ...
 
@@ -79,7 +82,7 @@ Commit type 	                        Emoji
 :rotating_light:    Tests
 🚨 Test: added new ... TestCase 
 :white_check_mark:  Adding a test
-✅ Test: Added new test
+✅ Test: Added ...
 :heavy_check_mark:  Make a test pass
 ✔️ Test: Passed
 :hammer:            Debug
