@@ -3,8 +3,8 @@
 namespace Tests\Entity;
 
 use App\Entity\Dog;
-use App\Service\BirthDateCalculator;
-use App\Service\PetSizeCalculator;
+use App\Service\Calculator\BirthDateCalculator;
+use App\Service\Calculator\PetSizeCalculator;
 use App\Structures\PetSize;
 use App\UseCase\CreateDog\Command\AddNewDog;
 use App\UseCase\CreateDog\Factory\DogCreator;

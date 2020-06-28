@@ -1,9 +1,9 @@
 <?php
 
-namespace Tests\Converters;
+namespace Tests\Service\Converter;
 
-use App\Service\Converters\DogSexConverter;
-use App\Service\Converters\PetSexConverterInterface;
+use App\Service\Converter\DogSexConverter;
+use App\Service\Converter\PetSexConverterInterface;
 use PHPUnit\Framework\TestCase;
 
 class DogSexConverterTest extends TestCase

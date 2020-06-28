@@ -1,8 +1,8 @@
 <?php
 
-namespace Tests;
+namespace Tests\Service\Calculator;
 
-use App\Service\BirthDateCalculator;
+use App\Service\Calculator\BirthDateCalculator;
 use PHPUnit\Framework\TestCase;
 
 class BirthDateCalculatorTest extends TestCase

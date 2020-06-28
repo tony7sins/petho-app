@@ -5,8 +5,8 @@ namespace App\UseCase\CreateDog\Factory;
 use App\Entity\Dog;
 use App\Entity\Pet;
 use App\Factory\PetCreator;
-use App\Service\BirthDateCalculator;
-use App\Service\PetSizeCalculator;
+use App\Service\Calculator\BirthDateCalculator;
+use App\Service\Calculator\PetSizeCalculator;
 use App\Structures\PetSize;
 use App\UseCase\CreateDog\Command\AddNewDog;
 
@@ -20,6 +20,7 @@ class DogCreator extends PetCreator
     /** @var Dog */
     private $entity;
 
+    /** @todo Set interfaces. not direct class injection */
     public function __construct(
         PetSize $sizes,
         BirthDateCalculator $birthDateCalculator,

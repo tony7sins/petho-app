@@ -1,8 +1,8 @@
 <?php
 
-namespace Tests\Service;
+namespace Tests\Service\Calculator;
 
-use App\Service\PetSizeCalculator;
+use App\Service\Calculator\PetSizeCalculator;
 use App\Structures\PetSize;
 use PHPUnit\Framework\TestCase;
 

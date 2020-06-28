@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Service\Converters;
+namespace App\Service\Converter;
 
 class DogSexConverter implements PetSexConverterInterface
 {

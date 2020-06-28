@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Service;
+namespace App\Service\Calculator;
 
-class BirthDateCalculator
+class BirthDateCalculator implements BirthDateCalculatorInterface
 {
     /** @var \DateTime */
     private $currentDate;
