@@ -49,7 +49,7 @@ class DogSexConverterTest extends TestCase
 
     public function test_new_dog_wrong_string()
     {
-        $this->expectException(\Exception::class);
+        $this->expectException(\DomainException::class);
         $dogIsMale = $this->converter->convertToBool('somemale');
     }
 }
