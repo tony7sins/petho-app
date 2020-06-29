@@ -80,7 +80,7 @@ Commit type 	                        Emoji
 👽 in18n: 
 
 :rotating_light:    Tests
-🚨 Test: added new ... TestCase 
+🚨 Test: Added ... TestCase 
 :white_check_mark:  Adding a test
 ✅ Test: Added ...
 :heavy_check_mark:  Make a test pass
