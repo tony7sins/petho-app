@@ -5,7 +5,7 @@ namespace App\Utils;
 use Ramsey\Uuid\Uuid;
 use Webmozart\Assert\Assert;
 
-class uuidGenerator
+class UuidGenerator
 {
     private $value;
 

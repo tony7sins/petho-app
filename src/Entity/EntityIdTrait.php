@@ -33,9 +33,9 @@ trait EntityIdTrait
         return $this->id;
     }
 
-    public function setUuid(string $uuid)
+    public function setUuid(string $uuidString)
     {
-        $this->uuid = $uuid;
+        $this->uuidString = Uuid::fromString($uuidString);
 
         return $this;
     }
