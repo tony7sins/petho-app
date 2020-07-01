@@ -2,7 +2,7 @@
 
 namespace App\Service\Calculator;
 
-class BirthDateCalculator implements BirthDateCalculatorInterface
+class DateOfBirthCalculator implements DateOfBirthCalculatorInterface
 {
     /** @var \DateTime */
     private $currentDate;
@@ -12,7 +12,7 @@ class BirthDateCalculator implements BirthDateCalculatorInterface
         $this->currentTime = $this->setCurrentDate();
     }
 
-    public function calculateBirthDate(int $monthsAge): string
+    public function calculateDateOfBirth(int $monthsAge): string
     {
         $date = new \DateTime("-{$monthsAge} months");
 

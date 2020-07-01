@@ -2,23 +2,23 @@
 
 namespace Tests\Service\Calculator;
 
-use App\Service\Calculator\BirthDateCalculator;
+use App\Service\Calculator\DateOfBirthCalculator;
 use PHPUnit\Framework\TestCase;
 
-class BirthDateCalculatorTest extends TestCase
+class DateOfBirthCalculatorTest extends TestCase
 {
     private $calc;
 
     public function setUp()
     {
-        $this->calc = new BirthDateCalculator();
+        $this->calc = new DateOfBirthCalculator();
     }
 
     public function test_age_calculation()
     {
         $diff = 13;
 
-        $age = $this->calc->calculateBirthDate($diff);
+        $age = $this->calc->calculateDateOfBirth($diff);
 
         $date = (new \DateTime("{$diff} months ago"))->format('Y-m');
         $this->assertSame($date, $age);

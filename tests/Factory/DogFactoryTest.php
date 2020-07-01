@@ -3,7 +3,7 @@
 namespace Tests\Entity;
 
 use App\Entity\Dog;
-use App\Service\Calculator\BirthDateCalculator;
+use App\Service\Calculator\DateOfBirthCalculator;
 use App\Service\Calculator\PetSizeCalculator;
 use App\Service\Converter\DogSexConverter;
 use App\Structures\PetSize;
@@ -18,12 +18,12 @@ class DogFactoryTest extends TestCase
     public function setUp()
     {
         $sizes = new PetSize();
-        $bDcalc = new BirthDateCalculator();
+        $dogWasBirth = new DateOfBirthCalculator();
 
         $sizeCalc = new PetSizeCalculator();
         $converter = new DogSexConverter();
 
-        $this->creator = new DogCreator($sizes, $bDcalc, $sizeCalc, $converter);
+        $this->creator = new DogCreator($sizes, $dogWasBirth, $sizeCalc, $converter);
     }
 
     public function test_add_new_dog()
@@ -56,11 +56,11 @@ class DogFactoryTest extends TestCase
         $this->assertInstanceOf(Dog::class, $dog);
 
         $size = 'middle';
-        $birthMonth = (new \DateTime('13 months ago'))->format('Y-m');
+        $dateOfBirth = (new \DateTime('13 months ago'))->format('Y-m');
         $dogSex = 'male';
 
         $this->assertSame($size, $dog->getSize());
-        $this->assertSame($birthMonth, $dog->getBirthMonth());
+        $this->assertSame($dateOfBirth, $dog->getBirthMonth());
         $this->assertSame($dogSex, $dog->getSex());
     }
 
@@ -94,11 +94,11 @@ class DogFactoryTest extends TestCase
         $this->assertInstanceOf(Dog::class, $dog);
 
         $size = 'middle';
-        $birthMonth = (new \DateTime('20 months ago'))->format('Y-m');
+        $dateOfBirth = (new \DateTime('20 months ago'))->format('Y-m');
         $dogSex = 'female';
 
         $this->assertSame($size, $dog->getSize());
-        $this->assertSame($birthMonth, $dog->getBirthMonth());
+        $this->assertSame($dateOfBirth, $dog->getBirthMonth());
         $this->assertSame($dogSex, $dog->getSex());
     }
 }
