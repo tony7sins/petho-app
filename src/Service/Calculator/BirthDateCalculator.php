@@ -27,8 +27,8 @@ class BirthDateCalculator implements BirthDateCalculatorInterface
         return $different;
     }
 
-    public function setCurrentDate(string $time = 'now'): void
+    private function setCurrentDate(): void
     {
-        $this->currentDate = new \DateTime($time);
+        $this->currentDate = new \DateTime('now');
     }
 }
