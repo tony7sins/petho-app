@@ -12,22 +12,27 @@ class BirthDateCalculatorTest extends TestCase
     public function setUp()
     {
         $this->calc = new BirthDateCalculator();
-        $this->calc->setCurrentDate('2020-06');
     }
 
     public function test_age_calculation()
     {
+        $diff = 13;
 
-        $age = $this->calc->calculateBirthDate(13);
+        $age = $this->calc->calculateBirthDate($diff);
 
-        $this->assertSame('2019-05', $age);
+        $date = (new \DateTime("{$diff} months ago"))->format('Y-m');
+        $this->assertSame($date, $age);
     }
 
     public function test_date_calculation()
     {
 
-        $date = $this->calc->calculateAge('2019-01');
+        $diff = 18;
 
-        $this->assertSame(17, $date);
+        $date = (new \DateTime("{$diff} months ago"))->format('Y-m');
+
+        $date = $this->calc->calculateAge($date);
+
+        $this->assertSame($diff, $date);
     }
 }

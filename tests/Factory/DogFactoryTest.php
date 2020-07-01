@@ -19,6 +19,7 @@ class DogFactoryTest extends TestCase
     {
         $sizes = new PetSize();
         $bDcalc = new BirthDateCalculator();
+
         $sizeCalc = new PetSizeCalculator();
         $converter = new DogSexConverter();
 
@@ -55,7 +56,7 @@ class DogFactoryTest extends TestCase
         $this->assertInstanceOf(Dog::class, $dog);
 
         $size = 'middle';
-        $birthMonth = '2019-05';
+        $birthMonth = (new \DateTime('13 months ago'))->format('Y-m');
         $dogSex = 'male';
 
         $this->assertSame($size, $dog->getSize());
@@ -69,7 +70,7 @@ class DogFactoryTest extends TestCase
         $name = 'Dazy';
         $height = 560;
         $weight = 20000;
-        $age = 13;
+        $age = 20;
 
         $isActive = true;
         $isMale = false;
@@ -93,7 +94,7 @@ class DogFactoryTest extends TestCase
         $this->assertInstanceOf(Dog::class, $dog);
 
         $size = 'middle';
-        $birthMonth = '2019-05';
+        $birthMonth = (new \DateTime('20 months ago'))->format('Y-m');
         $dogSex = 'female';
 
         $this->assertSame($size, $dog->getSize());
