@@ -2,6 +2,8 @@
 
 namespace App\Service\Converter;
 
+use App\Service\Converter\Exception\WrongAnimalSexException;
+
 class DogSexConverter implements PetSexConverterInterface
 {
     const FEMALE = 'female';
@@ -27,6 +29,6 @@ class DogSexConverter implements PetSexConverterInterface
 
     private function throwException()
     {
-        throw new \DomainException("You must input 'male' or 'female'. Not else");
+        throw new WrongAnimalSexException;
     }
 }

@@ -5,9 +5,10 @@ namespace App\UseCase\CreateDog\Factory;
 use App\Entity\Dog;
 use App\Entity\Pet;
 use App\Factory\PetCreator;
-use App\Service\Calculator\DateOfBirthCalculator;
-use App\Service\Calculator\PetSizeCalculator;
+use App\Service\Calculator\DateOfBirthCalculatorInterface;
+use App\Service\Calculator\PetSizeCalculatorInterface;
 use App\Service\Converter\DogSexConverter;
+use App\Service\Converter\PetSexConverterInterface;
 use App\Structures\PetSize;
 use App\UseCase\CreateDog\Command\AddNewDog;
 
@@ -23,12 +24,11 @@ class DogCreator extends PetCreator
     /** @var Dog */
     private $entity;
 
-    /** @todo Set interfaces. not direct class injection */
     public function __construct(
         PetSize $sizes,
-        DateOfBirthCalculator $dateOfBirthCalculator,
-        PetSizeCalculator $petSizeCalc,
-        DogSexConverter $sexConverter
+        DateOfBirthCalculatorInterface $dateOfBirthCalculator,
+        PetSizeCalculatorInterface $petSizeCalc,
+        PetSexConverterInterface $sexConverter
     ) {
         $this->sizes = $sizes::DOG;
         $this->dateOfBirthCalc = $dateOfBirthCalculator;
