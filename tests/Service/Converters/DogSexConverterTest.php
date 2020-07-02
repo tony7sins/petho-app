@@ -3,6 +3,7 @@
 namespace Tests\Service\Converter;
 
 use App\Service\Converter\DogSexConverter;
+use App\Service\Converter\Exception\WrongAnimalSexException;
 use App\Service\Converter\PetSexConverterInterface;
 use PHPUnit\Framework\TestCase;
 
@@ -47,9 +48,10 @@ class DogSexConverterTest extends TestCase
         $this->assertFalse($dogIsMale);
     }
 
-    public function test_new_dog_wrong_string()
+    /** @test */
+    public function what_exception_will_throws_be_couse_of_wrong_dog_sex_string()
     {
-        $this->expectException(\DomainException::class);
+        $this->expectException(WrongAnimalSexException::class);
         $dogIsMale = $this->converter->convertToBool('somemale');
     }
 }
