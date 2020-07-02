@@ -2,19 +2,9 @@
 
 namespace App\Service\Calculator;
 
-use InvalidArgumentException;
-
-class PetSizeCalculator
+class PetSizeCalculator implements PetSizeCalculatorInterface
 {
-    /**
-     * Simple Universal Pet Size Calculator
-     *
-     * @param array $sizes
-     * @param integer $height
-     * @param integer $weight
-     * @return string
-     * @throws \InvalidArgumentException
-     */
+    /** @inheritDoc */
     public function calculateSize(array $sizes, int $height, int $weight): string
     {
         if ($height <= 0 || $weight <= 0) {
