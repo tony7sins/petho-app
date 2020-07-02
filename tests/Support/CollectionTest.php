@@ -139,4 +139,24 @@ class CollectionTest extends TestCase
         $this->assertEquals('[{"username":"jason"},{"username":"jim"}]', $encoded);
 
     }
+
+    /** @test */
+    public function what_collection_can_be_itegared()
+    {
+        $collection = new Collection([
+            ['username' => 'jason'],
+            ['username' => 'jim'],
+            ['username' => 'jany'],
+        ]);
+
+        $this->assertEquals('jason', $collection->next()['username']);
+        $collection->next();
+        $this->assertEquals(['username' => 'jany'], $collection->next());
+        $collection->next();
+        $this->assertEquals(null, $collection->next());
+        $collection->next();
+        $collection->next();
+        $this->assertEquals(null, $collection->next());
+
+    }
 }
