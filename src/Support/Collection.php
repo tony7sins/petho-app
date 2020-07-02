@@ -10,6 +10,7 @@ class Collection implements \IteratorAggregate, \JsonSerializable
 
     public function __construct(array $items = [])
     {
+        $this->pointer = 0;
         $this->items = $items;
     }
 
@@ -73,5 +74,17 @@ class Collection implements \IteratorAggregate, \JsonSerializable
     public function cloneWith(Collection $collection): Collection
     {
         return new Collection(array_merge($this->get(), $collection->get()));
+    }
+
+    public function next()
+    {
+        if (isset($this->items[$this->pointer])) {
+            $key = $this->pointer;
+            $item = $this->items[$key];
+            $this->pointer = ++$key;
+            return $item;
+        }
+        $this->pointer = null;
+        return null;
     }
 }
