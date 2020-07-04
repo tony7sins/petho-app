@@ -26,12 +26,12 @@ class DogCreator extends PetCreator
 
     public function __construct(
         PetSize $sizes,
-        DateOfBirthCalculatorInterface $dateOfBirthCalculator,
+        DateOfBirthCalculatorInterface $dateOfBirthCalc,
         PetSizeCalculatorInterface $petSizeCalc,
         PetSexConverterInterface $sexConverter
     ) {
         $this->sizes = $sizes::DOG;
-        $this->dateOfBirthCalc = $dateOfBirthCalculator;
+        $this->dateOfBirthCalc = $dateOfBirthCalc;
         $this->petSizeCalc = $petSizeCalc;
         $this->sexConverter = $sexConverter;
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\UseCase\Command;
+namespace App\UseCase\CreateOwner\Command;
 
 class CreateOwner
 {

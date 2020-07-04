@@ -2,8 +2,8 @@
 namespace Tests\UseCase;
 
 use App\Entity\User;
-use App\UseCase\Command\CreateOwner;
-use App\UseCase\Factory\OwnerCreator;
+use App\UseCase\CreateOwner\Command\CreateOwner;
+use App\UseCase\CreateOwner\Factory\OwnerCreator;
 use App\Utils\UuidGenerator;
 use PHPUnit\Framework\TestCase;
 

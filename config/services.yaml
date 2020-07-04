@@ -8,20 +8,51 @@ parameters:
 services:
     # default configuration for services in *this* file
     _defaults:
-        autowire: true      # Automatically injects dependencies in your services.
+        autowire: true # Automatically injects dependencies in your services.
         autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+
+        # bind:
+        #     App\Structures\PetSize $sizes: "@app.pet.sizes"
+        #     App\Service\Calculator\DateOfBirthCalculatorInterface $dateOfBirthCalculator: "@app.calculator.date_of_birth"
+        #     App\Service\Calculator\PetSizeCalculatorInterface $petSizeCalc: "@app.calculator.pet_size"
+        #     App\Service\Converter\PetSexConverterInterface $sexConverter: "@app.converter.sex"
 
     # makes classes in src/ available to be used as services
     # this creates a service per class whose id is the fully-qualified class name
     App\:
-        resource: '../src/*'
-        exclude: '../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}'
+        resource: "../src/*"
+        exclude: "../src/{DependencyInjection,Entity,Migrations,Tests,Kernel.php}"
 
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
     App\Controller\:
-        resource: '../src/Controller'
-        tags: ['controller.service_arguments']
+        resource: "../src/Controller"
+        tags: ["controller.service_arguments"]
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    app.pet.sizes:
+        public: true
+        class: App\Structures\PetSize
+
+    app.calculator.date_of_birth:
+        class: App\Service\Calculator\DateOfBirthCalculator
+        public: true
+
+    app.calculator.pet_size:
+        class: App\Service\Calculator\PetSizeCalculator
+        public: true
+
+    app.converter.sex:
+        class: App\Service\Converter\DogSexConverter
+        public: true
+
+    app.factory.dog_creator:
+        # public: true
+        class: App\UseCase\CreateDog\Factory\DogCreator
+        bind:
+            $sizes: "@app.pet.sizes"
+            $dateOfBirthCalc: "@app.calculator.date_of_birth"
+            $petSizeCalc: "@app.calculator.pet_size"
+            $sexConverter: "@app.converter.sex"

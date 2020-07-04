@@ -1,9 +1,9 @@
 <?php
 
-namespace App\UseCase\Factory;
+namespace App\UseCase\CreateOwner\Factory;
 
 use App\Entity\User;
-use App\UseCase\Command\CreateOwner;
+use App\UseCase\CreateOwner\Command\CreateOwner;
 
 class OwnerCreator
 {
