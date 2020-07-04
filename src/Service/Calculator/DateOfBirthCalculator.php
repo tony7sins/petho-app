@@ -7,11 +7,6 @@ class DateOfBirthCalculator implements DateOfBirthCalculatorInterface
     /** @var \DateTime */
     private $currentDate;
 
-    public function __construct()
-    {
-        $this->currentTime = $this->setCurrentDate();
-    }
-
     public function calculateDateOfBirth(int $monthsAge): string
     {
         $date = new \DateTime("-{$monthsAge} months");
@@ -21,6 +16,8 @@ class DateOfBirthCalculator implements DateOfBirthCalculatorInterface
 
     public function calculateAge(string $date): int
     {
+        $this->setCurrentDate();
+
         $pastDate = new \DateTime($date);
         $dateDiff = $this->currentDate->diff($pastDate);
         $different = (($dateDiff->y) * 12 + ($dateDiff->m));

@@ -19,6 +19,7 @@ class PetSizeCalculator implements PetSizeCalculatorInterface
                 return $size;
             }
         }
-        return 'huge';
+
+        return array_key_last($sizes);
     }
 }
