@@ -3,16 +3,17 @@
 namespace Tests\Entity;
 
 use App\Entity\Dog;
+use App\Model\Pet\DogFormModel;
 use App\Service\Calculator\DateOfBirthCalculator;
 use App\Service\Calculator\PetSizeCalculator;
 use App\Service\Converter\DogSexConverter;
 use App\Structures\PetSize;
-use App\UseCase\CreateDog\Command\AddNewDog;
 use App\UseCase\CreateDog\Factory\DogCreator;
 use PHPUnit\Framework\TestCase;
 
 class DogFactoryTest extends TestCase
 {
+    /** @var DogCreator */
     private $creator;
 
     public function setUp()
@@ -29,24 +30,21 @@ class DogFactoryTest extends TestCase
     public function test_add_new_dog()
     {
 
-        $petData = [
-            "name" => 'Trump',
-            "height" => 560,
-            "weight" => 20000,
-            "age" => 13,
+        /** @var DogFormModel $petModel */
+        $petModel = new DogFormModel();
 
-            "isActive" => true,
-            "isMale" => true,
-            "isSterilized" => true,
-            "isCaptived" => false,
-        ];
+        $petModel->name = 'Trump';
+        $petModel->height = 560;
+        $petModel->weight = 20000;
+        $petModel->age = 13;
 
-        $newPet = new AddNewDog(
-            $petData
-        );
+        $petModel->isActive = true;
+        $petModel->isMale = true;
+        $petModel->isSterilized = true;
+        $petModel->isCaptived = false;
 
         /** @var Dog $dog */
-        $dog = $this->creator->create($newPet);
+        $dog = $this->creator->create($petModel);
 
         $this->assertInstanceOf(Dog::class, $dog);
 
@@ -62,22 +60,19 @@ class DogFactoryTest extends TestCase
     public function test_add_new_bitch()
     {
 
-        $petData = [
-            'name' => 'Dazy',
-            'height' => 560,
-            'weight' => 20000,
-            'age' => 20,
+        $petModel = new DogFormModel();
 
-            'isActive' => true,
-            'isMale' => false,
-            'isSterilized' => true,
-            'isCaptived' => false,
-        ];
-
-        $newPet = new AddNewDog($petData);
+        $petModel->name = 'Dazy';
+        $petModel->height = 560;
+        $petModel->weight = 20000;
+        $petModel->age = 20;
+        $petModel->isActive = true;
+        $petModel->isMale = false;
+        $petModel->isSterilized = true;
+        $petModel->isCaptived = false;
 
         /** @var Dog $dog */
-        $dog = $this->creator->create($newPet);
+        $dog = $this->creator->create($petModel);
 
         $this->assertInstanceOf(Dog::class, $dog);
 
