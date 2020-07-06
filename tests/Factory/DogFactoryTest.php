@@ -1,14 +1,14 @@
 <?php
 
-namespace Tests\Entity;
+namespace Tests\Factory;
 
 use App\Entity\Dog;
+use App\Factory\Pet\DogCreator;
 use App\Model\Pet\DogFormModel;
 use App\Service\Calculator\DateOfBirthCalculator;
 use App\Service\Calculator\PetSizeCalculator;
 use App\Service\Converter\DogSexConverter;
 use App\Structures\PetSize;
-use App\UseCase\CreateDog\Factory\DogCreator;
 use PHPUnit\Framework\TestCase;
 
 class DogFactoryTest extends TestCase
