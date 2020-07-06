@@ -29,25 +29,20 @@ class DogFactoryTest extends TestCase
     public function test_add_new_dog()
     {
 
-        $name = 'Trump';
-        $height = 560;
-        $weight = 20000;
-        $age = 13;
+        $petData = [
+            "name" => 'Trump',
+            "height" => 560,
+            "weight" => 20000,
+            "age" => 13,
 
-        $isActive = true;
-        $isMale = true;
-        $isStelized = true;
-        $isCaptived = false;
+            "isActive" => true,
+            "isMale" => true,
+            "isSterilized" => true,
+            "isCaptived" => false,
+        ];
 
         $newPet = new AddNewDog(
-            $isActive,
-            $isMale,
-            $isStelized,
-            $isCaptived,
-            $height,
-            $weight,
-            $age,
-            $name
+            $petData
         );
 
         /** @var Dog $dog */
@@ -67,26 +62,19 @@ class DogFactoryTest extends TestCase
     public function test_add_new_bitch()
     {
 
-        $name = 'Dazy';
-        $height = 560;
-        $weight = 20000;
-        $age = 20;
+        $petData = [
+            'name' => 'Dazy',
+            'height' => 560,
+            'weight' => 20000,
+            'age' => 20,
 
-        $isActive = true;
-        $isMale = false;
-        $isStelized = true;
-        $isCaptived = false;
+            'isActive' => true,
+            'isMale' => false,
+            'isSterilized' => true,
+            'isCaptived' => false,
+        ];
 
-        $newPet = new AddNewDog(
-            $isActive,
-            $isMale,
-            $isStelized,
-            $isCaptived,
-            $height,
-            $weight,
-            $age,
-            $name
-        );
+        $newPet = new AddNewDog($petData);
 
         /** @var Dog $dog */
         $dog = $this->creator->create($newPet);
