@@ -36,8 +36,7 @@ New features                            ✨ Feat: Added ...
 Self Bugfix                             🐞 Bug: ...       
 :bug:
 Other Bugfix                            🐛 Bug: ...                          
-:refactor:
-Refactor code                           ♻️  Refact: ...                       
+                     
 :rotating_light:
 Tests                                   🚨 Test: Added ... TestCase
 :white_check_mark:
@@ -47,7 +46,11 @@ Make a test pass                        ✔️ Test: Passed ...
 :hammer:
 Debug                                   🔨 Debug: ...
 :hammer-and-wrench:
-Refactor code with fix                  🛠 Refact: Fixed/Changed ... 
+:refactor:
+Refactor code                           ♻️ Refact: ...  
+Refactor code with fix                  🛠 Fix: Fixed/Changed ... 
+:ambulance:
+Critical hotfix 	                    🚑 Hotfix: 
 :heavy_plus_sign:
 Adding a dependency                     ❕ Dep: Added    
                                         ➕ Dep: Added 
@@ -83,8 +86,6 @@ Continuous Integration 	                💚
 Security 	                            🔒 
 :shirt:
 Lint 	                                👕 
-:ambulance:
-Critical hotfix 	                    🚑 
 :apple:
 Fixing on MacOS 	                    🍎 
 :penguin:
