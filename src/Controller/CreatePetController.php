@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
+use App\Factory\Pet\DogCreator;
 use App\Form\DogFormType;
-use App\UseCase\CreateDog\Factory\DogCreator;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;

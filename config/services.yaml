@@ -50,7 +50,7 @@ services:
 
     app.factory.dog_creator:
         # public: true
-        class: App\UseCase\CreateDog\Factory\DogCreator
+        class: App\Factory\Pet\DogCreator
         bind:
             $sizes: "@app.pet.sizes"
             $dateOfBirthCalc: "@app.calculator.date_of_birth"
