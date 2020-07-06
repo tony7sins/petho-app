@@ -2,8 +2,7 @@
 
 namespace App\Controller;
 
-use App\Form\DogFromType;
-use App\UseCase\CreateDog\Command\AddNewDog;
+use App\Form\DogFormType;
 use App\UseCase\CreateDog\Factory\DogCreator;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -17,14 +16,14 @@ class CreatePetController extends AbstractController
      */
     public function createDog(EntityManagerInterface $em, Request $request, DogCreator $dogCreator)
     {
-        $form = $this->createForm(DogFromType::class);
+        $form = $this->createForm(DogFormType::class);
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            // dd($form->getData());
-            $dogDTO = new AddNewDog($form->getData());
-            dd($dog = $dogCreator->create($dogDTO));
+
+            $dog = $dogCreator->create($form->getData());
+            dd($dog);
 
             // $em->persist($dog);
             // $em->flush();

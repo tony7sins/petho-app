@@ -5,12 +5,13 @@ namespace App\UseCase\CreateDog\Factory;
 use App\Entity\Dog;
 use App\Entity\Pet;
 use App\Factory\PetCreator;
+use App\Model\Pet\DogFormModel;
+use App\Model\Pet\PetFormModelInterface;
 use App\Service\Calculator\DateOfBirthCalculatorInterface;
 use App\Service\Calculator\PetSizeCalculatorInterface;
 use App\Service\Converter\DogSexConverter;
 use App\Service\Converter\PetSexConverterInterface;
 use App\Structures\PetSize;
-use App\UseCase\CreateDog\Command\AddNewDog;
 
 class DogCreator extends PetCreator
 {
@@ -36,20 +37,21 @@ class DogCreator extends PetCreator
         $this->sexConverter = $sexConverter;
     }
 
-    public function create($dog): Pet
+    public function create(PetFormModelInterface $dog): Pet
     {
+        // TODO Make LogicExeption!
         $this->init($dog);
         return $this->entity;
     }
 
-    private function init(AddNewDog $dog)
+    private function init(DogFormModel $dog)
     {
         $entity = new Dog();
         $entity
-            ->setName($dog->getName())
-            ->setBirthMonth($this->dateOfBirthCalc->calculateDateOfBirth($dog->getAge()))
-            ->setSize($this->petSizeCalc->calculateSize($this->sizes, $dog->getHeight(), $dog->getWeight()))
-            ->setSex($this->sexConverter->convertToString($dog->getIsMale()))
+            ->setName($dog->name)
+            ->setBirthMonth($this->dateOfBirthCalc->calculateDateOfBirth($dog->age))
+            ->setSize($this->petSizeCalc->calculateSize($this->sizes, $dog->height, $dog->weight))
+            ->setSex($this->sexConverter->convertToString($dog->isMale))
         ;
 
         $this->entity = $entity;
