@@ -15,26 +15,18 @@ class AddNewDog
     private $isStelized = true;
     private $isCaptived = false;
 
-    public function __construct(
-        // string $animalFamily,
-        bool $isActive,
-        bool $isMale,
-        bool $isStelized,
-        bool $isCaptived,
-        int $height,
-        int $weight,
-        int $age,
-        string $name) {
+    public function __construct(array $dogData)
+    {
 
-        // $this->animalFamily = $animalFamily;
-        $this->isActive = $isActive;
-        $this->isMale = $isMale;
-        $this->isStelized = $isStelized;
-        $this->isCaptived = $isCaptived;
-        $this->height = $height;
-        $this->weight = $weight;
-        $this->age = $age;
-        $this->name = $name;
+        // $this->animalFamily = $dogData['$animalFamily'];
+        $this->isActive = $dogData['isActive'];
+        $this->isMale = $dogData['isMale'];
+        $this->isStelized = $dogData['isSterilized'];
+        $this->isCaptived = $dogData['isCaptived'];
+        $this->height = $dogData['height'];
+        $this->weight = $dogData['weight'];
+        $this->age = $dogData['age'];
+        $this->name = $dogData['name'];
 
     }
 
