@@ -1,9 +1,9 @@
 <?php
 
-namespace App\UseCase\CreateOwner\Factory;
+namespace App\Factory\User;
 
 use App\Entity\User;
-use App\UseCase\CreateOwner\Command\CreateOwner;
+use App\Model\User\OwnerFormModel;
 
 class OwnerCreator
 {
@@ -13,13 +13,13 @@ class OwnerCreator
     {
         $this->uuid = $uuid;
     }
-    public function create(CreateOwner $userDto): User
+    public function create(OwnerFormModel $userDto): User
     {
         $user = new User();
         $user
             ->setUuid($this->uuid)
-            ->setName($userDto->getName())
-            ->setEmail($userDto->getEmail());
+            ->setName($userDto->name)
+            ->setEmail($userDto->email);
 
         return $user;
     }

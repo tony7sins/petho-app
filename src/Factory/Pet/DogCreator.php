@@ -1,6 +1,6 @@
 <?php
 
-namespace App\UseCase\CreateDog\Factory;
+namespace App\Factory\Pet;
 
 use App\Entity\Dog;
 use App\Entity\Pet;
